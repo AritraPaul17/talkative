@@ -16,7 +16,6 @@ export const FriendContextProvider = (props) => {
         setIsFetchingUser(true);
         try {
             let users = await fetch(backendPort, {
-                credentials: 'include',
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -42,7 +41,6 @@ export const FriendContextProvider = (props) => {
         try {
             setIsAddingFriend(true);
             let result = await fetch(backendPort, {
-                credentials: 'include',
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -74,7 +72,6 @@ export const FriendContextProvider = (props) => {
         setIsFetchingFriend(true);
         try {
             let result = await fetch(backendPort, {
-                credentials: 'include',
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

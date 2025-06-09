@@ -13,7 +13,6 @@ export const UserContextProvider = (props) => {
     const token = localStorage.getItem('Talkative');
     try {
       const userData = await fetch(backendPort, {
-        credentials: 'include',
         method: "GET",
         headers: {
           "Content-Type": "application/json",

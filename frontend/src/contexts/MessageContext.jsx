@@ -16,7 +16,6 @@ export const MessageContextProvider = (props) => {
         setIsFetchingMessanges(true);
         try {
             let result = await fetch(backendPort, {
-                credentials: 'include',
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

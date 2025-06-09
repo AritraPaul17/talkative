@@ -44,7 +44,6 @@ const Login = () => {
     setIsLoading(true);
     try {
       const userData = await fetch(backendPort, {
-        credentials: 'include',
         method: "POST",
         headers: {
           "Content-Type": "application/json",
