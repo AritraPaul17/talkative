@@ -10,12 +10,14 @@ export const UserContextProvider = (props) => {
 
   const getUser = async () => {
     const backendPort = `${port}/api/auth/getuser`;
+    const token = localStorage.getItem('Talkative');
     try {
       const userData = await fetch(backendPort, {
         credentials: 'include',
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          token:token
         },
       })
       const result = await userData.json();

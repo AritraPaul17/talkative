@@ -36,6 +36,7 @@ export const FriendContextProvider = (props) => {
 
     const addFriend = async (id,newFriendDetails) => {
         const backendPort = `${port}/api/auth/addfriend`;
+        const token = localStorage.getItem('Talkative');
         try {
             setIsAddingFriend(true);
             let result = await fetch(backendPort, {
@@ -43,6 +44,7 @@ export const FriendContextProvider = (props) => {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    token:token
                 },
                 body:JSON.stringify({
                     id
@@ -65,6 +67,8 @@ export const FriendContextProvider = (props) => {
 
     const getFriends = async()=>{
         const backendPort = `${port}/api/auth/getfriends`;
+        const token = localStorage.getItem('Talkative');
+
         setIsFetchingFriend(true);
         try {
             let result = await fetch(backendPort, {
@@ -72,6 +76,7 @@ export const FriendContextProvider = (props) => {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
+                    token:token
                 },
             })
             result = await result.json();            

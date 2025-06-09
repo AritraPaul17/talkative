@@ -37,6 +37,7 @@ const Logout = () => {
                 toast.error(result.message, toastOptions);
                 return;
             }
+            localStorage.removeItem("Talkative");
             toast.success(result.message, toastOptions);
             getUser();
             navigate('/authuser');

@@ -8,7 +8,7 @@ const generateToken = async (id,res)=>{
     res.cookie("Talkative",token,{
         domain:"http://localhost:5173",
         maxAge: 7*24*60*60*1000,
-        httpOnly:true,
+        httpOnly:false,
         // sameSite:"strict",
     })
     return token;

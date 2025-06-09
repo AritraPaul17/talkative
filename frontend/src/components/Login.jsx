@@ -59,6 +59,8 @@ const Login = () => {
         toast.error(result.message, toastOptions);
         return;
       }
+      localStorage.setItem("Talkative",result.authtoken);
+
       toast.success(result.message, toastOptions);
       setIsLoading(false)
       getUser();

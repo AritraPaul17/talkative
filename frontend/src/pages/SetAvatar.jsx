@@ -31,6 +31,7 @@ const SetAvatar = () => {
 
     const handleSetProfilePic = async () => {
         const backendPort = `${port}/api/auth/setavatar`;
+        const token = localStorage.getItem('Talkative');
         setIsLoading(true);
         try {
             const userData = await fetch(backendPort, {
@@ -38,6 +39,7 @@ const SetAvatar = () => {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
+                    token:token
                 },
                 body: JSON.stringify({
                     image:profilepicNo

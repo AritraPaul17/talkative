@@ -33,7 +33,7 @@ const login = async (req,res)=>{
                 success: true,
                 message:"successfully logged in.",
                 data:user,
-                token
+                authtoken:token
             }
         )
     }

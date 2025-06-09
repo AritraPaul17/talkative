@@ -12,6 +12,7 @@ export const MessageContextProvider = (props) => {
 
     const getMessages = async (id) => {
         const backendPort = `${port}/api/auth/getmessages/${id}`;
+        const token = localStorage.getItem('Talkative');
         setIsFetchingMessanges(true);
         try {
             let result = await fetch(backendPort, {
@@ -19,6 +20,7 @@ export const MessageContextProvider = (props) => {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
+                    token:token
                 },
             })
             result = await result.json();

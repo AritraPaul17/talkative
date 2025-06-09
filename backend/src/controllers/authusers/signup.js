@@ -61,7 +61,7 @@ const signup = async (req, res) => {
                     success: true,
                     message: "successfully registered.",
                     data,
-                    token
+                    authtoken:token
                 }
             )
         }
