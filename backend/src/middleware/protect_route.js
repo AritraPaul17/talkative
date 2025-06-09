@@ -4,8 +4,7 @@ const User = require('../database/models/usermodel');
 const protectRoute = async (req, res, next) => {
     try {
         // const token = req.cookies.Talkative;
-        // console.log(token);
-        const token = req.header("Talkative");
+        const token = req.header("token");
         
         if (!token) {
             return res.status(201).send({ success: false, message: "Please login....." })

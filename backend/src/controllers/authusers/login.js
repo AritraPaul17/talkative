@@ -27,7 +27,8 @@ const login = async (req,res)=>{
                 message: "Incorrect Email / Password."
             })
         }
-        const token = generateToken(user._id,res);
+        const token = await generateToken(user._id,res);
+        
         return res.status(201).send(
             {
                 success: true,

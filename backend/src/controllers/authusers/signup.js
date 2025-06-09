@@ -50,7 +50,7 @@ const signup = async (req, res) => {
         })
 
         if (newUser) {
-            const token = generateToken(newUser._id, res);
+            const token = await generateToken(newUser._id, res);
             const data = await newUser.save();
             let friends = new Friend({
                 userId: data._id,
