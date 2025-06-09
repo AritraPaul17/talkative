@@ -23,6 +23,7 @@ const Logout = () => {
       }
 
     const handleLogout = async () => {
+        const token = localStorage.getItem("Talkative");
         const backendPort = `${port}/api/auth/logout`
         try {
             const userData = await fetch(backendPort, {
@@ -30,6 +31,7 @@ const Logout = () => {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    token
                 },
             })
             const result = await userData.json();            
@@ -38,6 +40,7 @@ const Logout = () => {
                 return;
             }
             localStorage.removeItem("Talkative");
+            // toast.success("logged out successfully", toastOptions);
             toast.success(result.message, toastOptions);
             getUser();
             navigate('/authuser');

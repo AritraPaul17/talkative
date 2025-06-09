@@ -11,6 +11,7 @@ export const FriendContextProvider = (props) => {
     const [isFetchingFriend, setIsFetchingFriend] = useState(true);
 
     const fetchUsers = async () => {
+        const token = localStorage.getItem('Talkative');
         const backendPort = `${port}/api/auth/getalluser`;
         setIsFetchingUser(true);
         try {
@@ -19,6 +20,7 @@ export const FriendContextProvider = (props) => {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
+                    token:token
                 },
             })
             users = await users.json();

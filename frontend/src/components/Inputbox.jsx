@@ -43,11 +43,13 @@ const Inputbox = () => {
         }
         setIsSending(true);
         try {
+            const token = localStorage.getItem("Talkative");
             let result = await fetch(backendPort, {
                 credentials: 'include',
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    token
                 },
                 body: JSON.stringify({
                     content
